@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { beforeUpdate } from 'svelte';
 	import clsx from 'clsx';
 	import { Icon, ArrowLongLeft, ArrowLongRight } from 'svelte-hero-icons';
 	import { getLastComicsID } from '$lib/api/xkcd-api';
@@ -14,7 +14,7 @@
 	let nextIdx = 1;
 	let pages: number[] = [];
 
-	onMount(async () => {
+	beforeUpdate(async () => {
 		if (dev) {
 			totalPages = totalPages || 10;
 		} else {
@@ -43,15 +43,22 @@
 
 	<div class="flex h-8 md:h-10">
 		{#each pages as pageIdx}
-			<a
-				href={`/comics/${pageIdx}`}
-				class={clsx(
-					'inline-flex items-center border-t-2 px-2 pt-2 text-xs font-medium md:px-4 md:pt-4 md:text-sm',
-					pageIdx === currentPage ? highlightedPageLinkCN : defaultPageLinkCN
-				)}
-			>
-				{pageIdx || '...'}
-			</a>
+			{#if pageIdx}
+				<a
+					href={`/comics/${pageIdx}`}
+					class={clsx(
+						'inline-flex items-center border-t-2 px-2 pt-2 text-xs font-medium md:px-4 md:pt-4 md:text-sm',
+						pageIdx === currentPage ? highlightedPageLinkCN : defaultPageLinkCN
+					)}
+				>
+					{pageIdx}
+				</a>
+			{:else}
+				<span
+					class="inline-flex items-center border-t-2 px-2 pt-2 text-xs font-medium md:px-4 md:pt-4 md:text-sm"
+					>...</span
+				>
+			{/if}
 		{/each}
 	</div>
 

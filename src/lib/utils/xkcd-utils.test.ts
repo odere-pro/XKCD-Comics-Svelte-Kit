@@ -11,15 +11,13 @@ describe('@/utils/xkcd-utils', () => {
 			expect(result).toBe(link);
 		});
 
-		test('Expect to return empty string id VITE_PUBLIC_API_URL not set and no link provided', () => {
+		test('Expect to return empty string id PUBLIC_API_URL not set and no link provided', () => {
 			const result = createLink({ num, link: undefined });
 			expect(result).toBe('');
 		});
 
 		test('Expect to generate a link', () => {
-			process.env.VITE_PUBLIC_API_URL = 'https://xkcd.com/';
-
-			const result = createLink({ num, link: undefined });
+			const result = createLink({ num, link: undefined, api_url: 'https://xkcd.com/' });
 			expect(result).toBe('https://xkcd.com/1');
 		});
 	});

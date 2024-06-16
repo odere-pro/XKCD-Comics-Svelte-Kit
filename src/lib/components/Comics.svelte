@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_API_URL } from '$env/static/public';
 	import type { ComicResponseData } from '$lib/types';
 	import { get4x3ImageHeight } from '$lib/utils/image-utils';
 	import { createLink } from '$lib/utils/xkcd-utils';
@@ -69,8 +70,8 @@
 			{/if}
 			{#if num}
 				<DataField label="Link to post">
-					<a class="text-sm" href={createLink({ num, link })}>
-						{createLink({ num, link })}
+					<a class="text-sm" href={createLink({ num, link, api_url: PUBLIC_API_URL })}>
+						{createLink({ num, link, api_url: PUBLIC_API_URL })}
 					</a>
 				</DataField>
 			{/if}

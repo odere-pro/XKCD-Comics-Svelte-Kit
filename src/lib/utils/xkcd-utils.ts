@@ -1,14 +1,12 @@
-export const createLink = (props: { num: number; link?: string }): string => {
-	const { num, link } = props;
+export const createLink = (props: { num: number; link?: string; api_url?: string }): string => {
+	const { num, link, api_url = '' } = props;
 	if (link) {
 		return link;
 	}
 
-	const VITE_PUBLIC_API_URL = process.env.VITE_PUBLIC_API_URL;
-
-	if (!VITE_PUBLIC_API_URL) {
+	if (!api_url) {
 		return '';
 	}
 
-	return `${process.env.VITE_PUBLIC_API_URL}${num}`;
+	return `${api_url}${num}`;
 };
