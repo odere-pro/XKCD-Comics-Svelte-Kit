@@ -39,11 +39,13 @@
 	$: {
 		if (id && !loaded) {
 			fetchComicsById(id);
+		} else {
+			data = undefined;
 		}
 	}
 </script>
 
-<nav class="breadcrumbs flex h-5 w-full" aria-label="Breadcrumb">
+<nav class="breadcrumbs flex h-5" aria-label="Breadcrumb">
 	<ol role="list" class="flex">
 		<li class="m-0 flex items-center gap-1">
 			<a href="/" class="flex w-full items-center gap-1 text-gray-400 hover:text-gray-500">
