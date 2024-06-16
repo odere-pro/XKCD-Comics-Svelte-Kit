@@ -4,11 +4,11 @@ export const createLink = (props: { num: number; link?: string }): string => {
 		return link;
 	}
 
-	const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
+	const VITE_PUBLIC_API_URL = process.env.VITE_PUBLIC_API_URL;
 
-	if (!NEXT_PUBLIC_API_URL) {
+	if (!VITE_PUBLIC_API_URL) {
 		return '';
 	}
 
-	return `${process.env.NEXT_PUBLIC_API_URL}${num}`;
+	return `${process.env.VITE_PUBLIC_API_URL}${num}`;
 };

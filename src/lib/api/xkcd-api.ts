@@ -1,8 +1,8 @@
 import type { ComicResponseData } from '$lib/types';
-import { NEXT_PUBLIC_API_URL } from '$env/static/private';
+import { PUBLIC_API_URL } from '$env/static/public';
 
 export async function fetchLastComics(): Promise<ComicResponseData | undefined> {
-	const url = `${NEXT_PUBLIC_API_URL}/info.0.json`;
+	const url = `${PUBLIC_API_URL}/info.0.json`;
 
 	try {
 		const response = await fetch(url, {
@@ -22,7 +22,7 @@ export async function fetchLastComics(): Promise<ComicResponseData | undefined> 
 }
 
 export async function getLastComicsID(): Promise<number> {
-	const url = `${NEXT_PUBLIC_API_URL}/info.0.json`;
+	const url = `${PUBLIC_API_URL}/info.0.json`;
 
 	try {
 		const data = await fetchLastComics();
@@ -35,7 +35,7 @@ export async function getLastComicsID(): Promise<number> {
 }
 
 export async function fetchComicsById(id: string): Promise<ComicResponseData | undefined> {
-	const url = `${NEXT_PUBLIC_API_URL}/${id}/info.0.json`;
+	const url = `${PUBLIC_API_URL}/${id}/info.0.json`;
 
 	try {
 		const response = await fetch(url, {

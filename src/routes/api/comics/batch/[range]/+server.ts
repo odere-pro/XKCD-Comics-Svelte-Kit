@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { fetchComicsByIds } from '$lib/api.server';
+import { fetchComicsByIds } from '$lib/api/xkcd-api';
 import { json } from '@sveltejs/kit';
 import { getBatchIds } from '$lib/utils';
 

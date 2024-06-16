@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { fetchComicsById } from '$lib/api.server';
+import { fetchComicsById } from '$lib/api/xkcd-api';
 import { json } from '@sveltejs/kit';
 
 export async function GET(request) {
