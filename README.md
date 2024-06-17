@@ -1,8 +1,33 @@
 # create-svelte
 
+This is a simple UI to explore XKCD strips - <https://xkcd.com>. It is built using Next.js and TypeScript.
+Demo: <https://xkcd-comics-next-js.vercel.app/>
+
+Supported features:
+
+1. Display thumbnails for all the strips with pagination on home page, route `/`
+2. When use click on thumbnail, it will open thumbnail page with pagination navigation, route
+   `/comics/[id]`
+3. Route `/comics` will redirect to `/comics/[last_id]`
+4. Breadcrumbs for easy navigation
+5. 404 error handling
+6. XKCD API in JSON format, `/api/comics`, `/api/comics/[id]`, `/api/comics/batch/[id]`
+7. Caching images, and caching fetch requests to XKCD permanently for `/comics/[id]`, and revalidate
+   every 1 day `/comics/[last_id]`
+8. ESLint, Prettier, Husky, Lint-staged for code quality
+
+Requirements:
+
+- Use the API described at <https://xkcd.com/json.html>
+- The UI should be able to display thumbnails for all the strips (but not necessarily show all at
+  the same time)
+- You should be able to explore each strip more closely in some way
+- Build your software in a way that you can build upon and maintain it for a long time to come.
+- Add an extra feature/functionality that shows us who you are as an engineer.
+
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Creating a project
+## Getting Started
 
 If you're seeing this, you've probably already done this step. Congrats!
 
